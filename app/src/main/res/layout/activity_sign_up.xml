@@ -1,124 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
-    android:background="#121212">
+    android:background="#0B0F14"
+    android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Perto Mesh রেজিস্ট্রেশন"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="24dp"/>
-
-    <!-- ধাপ ১: নাম, জন্মতারিখ ও ইমেইল ইনপুট লেআউট -->
     <LinearLayout
-        android:id="@+id/layoutStep1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/etFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="প্রথম নাম (First Name)"
-            android:textColorHint="#AAAAAA"
-            android:textColor="#FFFFFF"
-            android:inputType="textPersonName"
-            android:padding="14dp"
-            android:background="#1E1E1E"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="শেষ নাম (Last Name)"
-            android:textColorHint="#AAAAAA"
-            android:textColor="#FFFFFF"
-            android:inputType="textPersonName"
-            android:padding="14dp"
-            android:background="#1E1E1E"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etDob"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="জন্মতারিখ (DD/MM/YYYY)"
-            android:textColorHint="#AAAAAA"
-            android:textColor="#FFFFFF"
-            android:inputType="date"
-            android:padding="14dp"
-            android:background="#1E1E1E"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ইমেইল অ্যাড্রেস"
-            android:textColorHint="#AAAAAA"
-            android:textColor="#FFFFFF"
-            android:inputType="textEmailAddress"
-            android:padding="14dp"
-            android:background="#1E1E1E"
-            android:layout_marginBottom="20dp"/>
-
-        <Button
-            android:id="@+id/btnSendOtp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ওটিপি পাঠান ও ভেরিফাই করুন"
-            android:backgroundTint="#00E676"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:padding="14dp"/>
-    </LinearLayout>
-
-    <!-- ধাপ ২: কাস্টম UID / ফোন নম্বর সেট করার লেআউট -->
-    <LinearLayout
-        android:id="@+id/layoutStep2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/glass_card"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:padding="24dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="আপনার পছন্দমতো কাস্টম UID বা ফোন নম্বর দিন"
-            android:textSize="14sp"
-            android:textColor="#AAAAAA"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etCustomUid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="কাস্টম UID বা ফোন নম্বর"
-            android:textColorHint="#AAAAAA"
+            android:layout_gravity="center"
+            android:text="Perto Mesh রেজিস্ট্রেশন"
             android:textColor="#FFFFFF"
-            android:inputType="text"
-            android:padding="14dp"
-            android:background="#1E1E1E"
-            android:layout_marginBottom="20dp"/>
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnFinalRegister"
+        <!-- Step 1 Layout -->
+        <LinearLayout
+            android:id="@+id/layoutStep1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="অ্যাকাউন্ট ফাইনাল করুন"
-            android:backgroundTint="#00E676"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:padding="14dp"/>
-    </LinearLayout>
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <EditText
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_otp_box"
+                android:hint="প্রথম নাম (First Name)"
+                android:inputType="textPersonName"
+                android:paddingHorizontal="14dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#AAAAAA" />
+
+            <EditText
+                android:id="@+id/etLastName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_otp_box"
+                android:hint="শেষ নাম (Last Name)"
+                android:inputType="textPersonName"
+                android:paddingHorizontal="14dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#AAAAAA" />
+
+            <EditText
+                android:id="@+id/etDob"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_otp_box"
+                android:hint="জন্মতারিখ (DD/MM/YYYY)"
+                android:inputType="date"
+                android:paddingHorizontal="14dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#AAAAAA" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_otp_box"
+                android:hint="ইমেইল অ্যাড্রেস"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="14dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#AAAAAA" />
+
+            <Button
+                android:id="@+id/btnSendOtp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="#00E676"
+                android:text="ওটিপি পাঠান ও ভেরিফাই করুন"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Step 2 Layout -->
+        <LinearLayout
+            android:id="@+id/layoutStep2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="আপনার পছন্দমতো কাস্টম UID বা ফোন নম্বর দিন"
+                android:textColor="#AAAAAA"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/etCustomUid"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_otp_box"
+                android:hint="কাস্টম UID বা ফোন নম্বর"
+                android:inputType="text"
+                android:paddingHorizontal="14dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#AAAAAA" />
+
+            <Button
+                android:id="@+id/btnFinalRegister"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="#00E676"
+                android:text="অ্যাকাউন্ট ফাইনাল করুন"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
