@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#0F172A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Header Title & Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P2P MESH NETWORK"
+            android:textColor="#00E676"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            android:layout_marginTop="32dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secure Decentralized Communication"
+            android:textColor="#94A3B8"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Tab Selector Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#1E293B"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btnTabSignIn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00E676"
+                android:text="Sign In"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btnTabSignUp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="Sign Up"
+                android:textColor="#B0BEC5"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- 1. SIGN IN FORM LAYOUT -->
+        <!-- ========================================== -->
+        <LinearLayout
+            android:id="@+id/layoutSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registered Email"
+                android:textColor="#E2E8F0"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etLoginEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#1E293B"
+                android:hint="user@example.com"
+                android:textColorHint="#64748B"
+                android:textColor="#FFFFFF"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Node User ID (UID)"
+                android:textColor="#E2E8F0"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etLoginUid"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#1E293B"
+                android:hint="Enter your assigned UID"
+                android:textColorHint="#64748B"
+                android:textColor="#FFFFFF"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btnActionSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="#00E676"
+                android:text="LOG IN TO MESH"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- 2. SIGN UP FORM LAYOUT -->
+        <!-- ========================================== -->
+        <LinearLayout
+            android:id="@+id/layoutSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textColor="#E2E8F0"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etSignUpName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#1E293B"
+                android:hint="John Doe"
+                android:textColorHint="#64748B"
+                android:textColor="#FFFFFF"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:textColor="#E2E8F0"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etSignUpEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#1E293B"
+                android:hint="yourname@example.com"
+                android:textColorHint="#64748B"
+                android:textColor="#FFFFFF"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Custom Custom UID"
+                android:textColor="#E2E8F0"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etSignUpUid"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#1E293B"
+                android:hint="e.g. NODE_9921"
+                android:textColorHint="#64748B"
+                android:textColor="#FFFFFF"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btnActionSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="#00E676"
+                android:text="CREATE NODE &amp; VERIFY"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

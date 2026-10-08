@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/mipmap_ic_launcher_round.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/mipmap/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/layout_item_peer.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/layout/item_peer.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/layout_activity_profile.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/layout_activity_main.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/drawable_bg_peer.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/drawable/bg_peer.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/layout_activity_login.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/layout_activity_sign_up.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/layout/activity_sign_up.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/drawable_bg_message.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/drawable/bg_message.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/mipmap_ic_launcher.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/mipmap/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/layout_item_message.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/layout/item_message.xml"
+    },
+    {
+        "merged": "com.example.p2pmessenger.app-merged_res-35:/layout_dialog_add_friend.xml.flat",
+        "source": "com.example.p2pmessenger.app-main-37:/layout/dialog_add_friend.xml"
+    }
+]

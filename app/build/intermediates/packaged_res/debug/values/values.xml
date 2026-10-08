@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#35D07F</color>
+    <color name="background">#0B0F14</color>
+    <color name="border">#263341</color>
+    <color name="green">#35D07F</color>
+    <color name="ic_launcher_background">#7C4DFF</color>
+    <color name="message_bubble">#1B2633</color>
+    <color name="primary">#35D07F</color>
+    <color name="primary_dark">#24965A</color>
+    <color name="surface">#121820</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8F9BA8</color>
+    <string name="app_name">Perto Mesh</string>
+    <string name="mesh_active">Mesh Network Active</string>
+    <style name="Theme.PertoMesh" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/background</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:colorControlActivated">@color/green</item>
+    </style>
+</resources>

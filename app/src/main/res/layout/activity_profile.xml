@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="আমার প্রোফাইল ও UID"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/tvMyUid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UID: লোড হচ্ছে..."
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:background="#E0E0E0"
+        android:textColor="#000000"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnCopyUid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UID কপি করুন"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btnShareUid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="বন্ধুর সাথে শেয়ার করুন"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="লগ আউট"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>

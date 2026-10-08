@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- App colors -->
+    <color name="background">#0B0F14</color>
+    <color name="surface">#121820</color>
+    <color name="message_bubble">#1B2633</color>
+    <color name="border">#263341</color>
+
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8F9BA8</color>
+
+    <color name="green">#35D07F</color>
+
+    <color name="primary">#35D07F</color>
+    <color name="primary_dark">#24965A</color>
+    <color name="accent">#35D07F</color>
+
+    <!-- Launcher icon -->
+    <color name="ic_launcher_background">#7C4DFF</color>
+
+</resources>
