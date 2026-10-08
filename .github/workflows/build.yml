@@ -19,6 +19,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Update Gradle Wrapper to 8.2
+        run: ./gradlew wrapper --gradle-version 8.2
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
