@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- যখন বক্সে কার্সার বা ফোকাস থাকবে (গোল্ডেন গ্লো) -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#3BFFFFFF" />
+            <corners android:radius="12dp" />
+            <stroke android:width="2dp" android:color="#FFB703" />
+        </shape>
+    </item>
+    <!-- নরমাল অবস্থায় গ্লাসি লুক -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#1AFFFFFF" />
+            <corners android:radius="12dp" />
+            <stroke android:width="1dp" android:color="#33FFFFFF" />
+        </shape>
+    </item>
+</selector>
