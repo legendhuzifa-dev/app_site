@@ -2,15 +2,13 @@ package com.example.p2pmessenger;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.InputType;
-import android.text.TextUtils;
-import android.view.Gravity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,9 +22,9 @@ public class OtpActivity extends AppCompatActivity {
     private static final long OTP_TOTAL_MS = 300000L;
     private static final long RESEND_AFTER_SEC = 30L;
 
-    private EditText etOtpCode;
+    private EditText otp1, otp2, otp3, otp4, otp5, otp6;
     private Button btnVerifyOtp;
-    private TextView tvTimer, tvResendOtp;
+    private TextView tvSubtitle, tvTimer, tvResendOtp;
     private String userEmail = "";
     private String purpose = "login";
     private CountDownTimer countDownTimer;
@@ -36,6 +34,8 @@ public class OtpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_otp);
+
         String email = getIntent().getStringExtra("USER_EMAIL");
         userEmail = email == null ? "" : email;
         String p = getIntent().getStringExtra("OTP_PURPOSE");
@@ -47,66 +47,50 @@ public class OtpActivity extends AppCompatActivity {
             return;
         }
 
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(60, 80, 60, 60);
-        layout.setGravity(Gravity.CENTER_HORIZONTAL);
-        layout.setBackgroundColor(Color.parseColor("#121212"));
+        tvSubtitle = findViewById(R.id.tvSubtitle);
+        tvSubtitle.setText("6-digit code sent to: " + userEmail);
 
-        TextView title = new TextView(this);
-        title.setText("OTP Verification");
-        title.setTextSize(24);
-        title.setTypeface(null, Typeface.BOLD);
-        title.setTextColor(Color.WHITE);
-        title.setGravity(Gravity.CENTER);
-        layout.addView(title);
+        otp1 = findViewById(R.id.otp1);
+        otp2 = findViewById(R.id.otp2);
+        otp3 = findViewById(R.id.otp3);
+        otp4 = findViewById(R.id.otp4);
+        otp5 = findViewById(R.id.otp5);
+        otp6 = findViewById(R.id.otp6);
 
-        TextView subtitle = new TextView(this);
-        subtitle.setText("6-digit code sent to: " + userEmail);
-        subtitle.setTextSize(14);
-        subtitle.setTextColor(Color.parseColor("#B0BEC5"));
-        subtitle.setGravity(Gravity.CENTER);
-        subtitle.setPadding(0, 15, 0, 30);
-        layout.addView(subtitle);
+        tvTimer = findViewById(R.id.tvTimer);
+        btnVerifyOtp = findViewById(R.id.btnVerifyOtp);
+        tvResendOtp = findViewById(R.id.tvResendOtp);
 
-        etOtpCode = new EditText(this);
-        etOtpCode.setHint("Enter 6-digit OTP");
-        etOtpCode.setHintTextColor(Color.parseColor("#757575"));
-        etOtpCode.setTextColor(Color.WHITE);
-        etOtpCode.setInputType(InputType.TYPE_CLASS_NUMBER);
-        etOtpCode.setGravity(Gravity.CENTER);
-        etOtpCode.setTextSize(18);
-        etOtpCode.setPadding(30, 30, 30, 30);
-        etOtpCode.setBackgroundColor(Color.parseColor("#1E1E1E"));
-        layout.addView(etOtpCode);
-
-        tvTimer = new TextView(this);
-        tvTimer.setTextColor(Color.parseColor("#FF1744"));
-        tvTimer.setGravity(Gravity.CENTER);
-        tvTimer.setPadding(0, 20, 0, 20);
-        layout.addView(tvTimer);
-
-        btnVerifyOtp = new Button(this);
-        btnVerifyOtp.setText("VERIFY & CONTINUE");
-        btnVerifyOtp.setTextColor(Color.BLACK);
-        btnVerifyOtp.setBackgroundColor(Color.parseColor("#00E676"));
-        btnVerifyOtp.setTypeface(null, Typeface.BOLD);
-        layout.addView(btnVerifyOtp);
-
-        tvResendOtp = new TextView(this);
-        tvResendOtp.setText("Didn't receive code? Resend OTP");
-        tvResendOtp.setTextSize(14);
-        tvResendOtp.setTextColor(Color.parseColor("#757575"));
-        tvResendOtp.setGravity(Gravity.CENTER);
-        tvResendOtp.setPadding(0, 40, 0, 20);
-        tvResendOtp.setEnabled(false);
-        layout.addView(tvResendOtp);
-
-        setContentView(layout);
+        setupOtpInputAutoJump();
         startOtpTimer();
 
         btnVerifyOtp.setOnClickListener(v -> verifyOtp());
         tvResendOtp.setOnClickListener(v -> requestResend());
+    }
+
+    private void setupOtpInputAutoJump() {
+        EditText[] boxes = new EditText[]{otp1, otp2, otp3, otp4, otp5, otp6};
+        for (int i = 0; i < boxes.length; i++) {
+            final int index = i;
+            boxes[i].addTextChangedListener(new TextWatcher() {
+                @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (s.length() == 1 && index < boxes.length - 1) {
+                        boxes[index + 1].requestFocus();
+                    }
+                }
+                @Override public void afterTextChanged(Editable s) {}
+            });
+        }
+    }
+
+    private String getEnteredOtp() {
+        return otp1.getText().toString().trim() +
+               otp2.getText().toString().trim() +
+               otp3.getText().toString().trim() +
+               otp4.getText().toString().trim() +
+               otp5.getText().toString().trim() +
+               otp6.getText().toString().trim();
     }
 
     private boolean alive() { return !isFinishing() && !isDestroyed(); }
@@ -116,9 +100,9 @@ public class OtpActivity extends AppCompatActivity {
             Toast.makeText(this, "OTP এর মেয়াদ শেষ! Resend OTP চাপুন।", Toast.LENGTH_LONG).show();
             return;
         }
-        final String code = etOtpCode.getText().toString().trim();
-        if (TextUtils.isEmpty(code) || code.length() != 6) {
-            Toast.makeText(this, "৬ ডিজিটের OTP দিন!", Toast.LENGTH_SHORT).show();
+        final String code = getEnteredOtp();
+        if (code.length() != 6) {
+            Toast.makeText(this, "৬ ডিজিটের পুরো OTP লিখুন!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -144,7 +128,7 @@ public class OtpActivity extends AppCompatActivity {
                         String name = result.optString("name", "User");
                         if (uid.isEmpty()) {
                             btnVerifyOtp.setEnabled(true);
-                            Toast.makeText(this, "লগইন সম্পন্ন করা যায়নি (UID পাওয়া যায়নি)।", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "লগইন সম্পন্ন করা যায়নি।", Toast.LENGTH_LONG).show();
                             return;
                         }
                         Session.save(uid, name, email, result.optString("session_token", ""));
@@ -160,7 +144,7 @@ public class OtpActivity extends AppCompatActivity {
                         String token = result.optString("verification_token", "");
                         if (token.isEmpty()) {
                             btnVerifyOtp.setEnabled(true);
-                            Toast.makeText(this, "ভেরিফিকেশন ব্যর্থ হয়েছে। আবার চেষ্টা করুন।", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "ভেরিফিকেশন ব্যর্থ হয়েছে।", Toast.LENGTH_LONG).show();
                             return;
                         }
                         if (countDownTimer != null) countDownTimer.cancel();
@@ -221,7 +205,7 @@ public class OtpActivity extends AppCompatActivity {
         countDownTimer = new CountDownTimer(OTP_TOTAL_MS, 1000) {
             @Override public void onTick(long ms) {
                 long seconds = ms / 1000;
-                tvTimer.setText(String.format(Locale.US, "OTP expires in: %02d:%02d", seconds / 60, seconds % 60));
+                tvTimer.setText(String.format(Locale.US, "Expires in: %02d:%02d", seconds / 60, seconds % 60));
                 long elapsed = OTP_TOTAL_MS / 1000 - seconds;
                 if (!resendEnabled && elapsed >= RESEND_AFTER_SEC) setResendEnabled(true);
             }
