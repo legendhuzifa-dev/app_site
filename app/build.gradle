@@ -27,4 +27,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
     implementation 'com.google.android.gms:play-services-base:18.5.0'
+    
+    // P2P Nearby Connections API library
+    implementation 'com.google.android.gms:play-services-nearby:19.3.0'
 }
