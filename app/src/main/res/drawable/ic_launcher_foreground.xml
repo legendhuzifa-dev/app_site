@@ -2,9 +2,27 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
-    <path android:strokeColor="#FFFFFF" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M45,45L40,37"/>
-    <path android:strokeColor="#FFFFFF" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M63,45L68,37"/>
-    <path android:fillColor="#FFFFFF" android:pathData="M38,72L38,58A16,16 0 0 1 70,58L70,72Z"/>
-    <path android:fillColor="@color/ic_launcher_background" android:pathData="M45,54a2,2 0 1 0 4,0a2,2 0 1 0 -4,0"/>
-    <path android:fillColor="@color/ic_launcher_background" android:pathData="M59,54a2,2 0 1 0 4,0a2,2 0 1 0 -4,0"/>
+    
+    <!-- ব্যাকগ্রাউন্ড সার্কেল বা নেটওয়ার্ক নোড ডিজাইন -->
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M54,18 C33.5,18 17,34.5 17,55 C17,65.2 21.1,74.5 27.8,81.3 L24,94 L37.2,90.3 C42.3,92.7 47.9,94 54,94 C74.5,94 91,77.5 91,57 C91,36.5 74.5,18 54,18 Z"
+        android:strokeWidth="3"
+        android:strokeColor="#FFFFFF"/>
+
+    <!-- মেসেজ বা চ্যাট আইকন শেপ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,42 L70,42 C72.2,42 74,43.8 74,46 L74,64 C74,66.2 72.2,68 70,68 L50,68 L38,78 L38,68 L38,46 C38,43.8 39.8,42 42,42 Z"/>
+
+    <!-- সিকিউরিটি ডট বা কানেকশন পয়েন্ট -->
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M44,52 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0"/>
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M51,52 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0"/>
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M58,52 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0"/>
 </vector>
