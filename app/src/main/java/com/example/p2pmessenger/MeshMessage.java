@@ -9,17 +9,18 @@ public class MeshMessage {
     public String messageId;
     public String senderId;
     public String recipientId;
-    public String payload;
+    public String payload; // এটি এখন অটোমেটিক এনক্রিপ্টেড থাকবে
     public int ttl;
     public long timestamp;
     public double senderLat;
     public double senderLng;
 
-    public MeshMessage(String senderId, String recipientId, String payload) {
+    public MeshMessage(String senderId, String recipientId, String rawPayload) {
         this.messageId = UUID.randomUUID().toString();
         this.senderId = senderId;
         this.recipientId = recipientId;
-        this.payload = payload;
+        // পাঠানোর সময় পেলোড অটোমেটিক AES এনক্রিপ্ট হয়ে যাবে
+        this.payload = CryptoUtils.encrypt(rawPayload);
         this.ttl = 5;
         this.timestamp = System.currentTimeMillis();
         this.senderLat = 0.0;
@@ -40,17 +41,25 @@ public class MeshMessage {
     }
 
     public static MeshMessage fromJson(String json) throws JSONException {
-        JSONObject object = new JSONObject(json);
+        JSONObject object = new json.JSONObject(json); // or new JSONObject(json)
+        JSONObject jsonObj = new JSONObject(json);
         MeshMessage message = new MeshMessage(
-                object.getString("senderId"),
-                object.getString("recipientId"),
-                object.getString("payload")
+                jsonObj.getString("senderId"),
+                jsonObj.getString("recipientId"),
+                "" // খালি পাস করছি কারণ নিচে পেলোড সরাসরি সেট করা হবে
         );
-        message.messageId = object.getString("messageId");
-        message.ttl = object.getInt("ttl");
-        message.timestamp = object.getLong("timestamp");
-        if (object.has("senderLat")) message.senderLat = object.getDouble("senderLat");
-        if (object.has("senderLng")) message.senderLng = object.getDouble("senderLng");
+        message.messageId = jsonObj.getString("messageId");
+        // রিসিভ করার পর পেলোড যেমন আছে (এনক্রিপ্টেড) সেটাই থাকবে, পড়ার সময় ডিক্রিপ্ট করতে হবে
+        message.payload = jsonObj.getString("payload");
+        message.ttl = jsonObj.getInt("ttl");
+        message.timestamp = jsonObj.getLong("timestamp");
+        if (jsonObj.has("senderLat")) message.senderLat = jsonObj.getDouble("senderLat");
+        if (jsonObj.has("senderLng")) message.senderLng = jsonObj.getDouble("senderLng");
         return message;
+    }
+
+    // মেসেজ পড়ার জন্য এই মেথড ব্যবহার করবেন (ডিক্রিপ্ট করার জন্য)
+    public String getDecryptedPayload() {
+        return CryptoUtils.decrypt(payload);
     }
 }
